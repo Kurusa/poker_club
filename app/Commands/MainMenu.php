@@ -51,6 +51,7 @@ class MainMenu extends BaseCommand
             ];
             $buttons[] = [
                 $this->text['editClub'],
+                $this->text['createMailingForMyClub'],
             ];
         }
 

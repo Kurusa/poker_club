@@ -37,4 +37,5 @@ return [
     'addMailingImage'           => 'Добавьте изображение к рассылке',
     'skip'                      => 'Пропустить',
     'selectClubForMailing'      => 'Выберите клуб для рассылки',
+    'createMailingForMyClub'    => 'Создать рассылку для своего клуба',
 ];

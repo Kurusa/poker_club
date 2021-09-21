@@ -18,4 +18,5 @@ return [
     'cancel'             => Cancel::class,
     'editClub'           => ClubMenu::class,
     'createMailing'      => Text::class,
+    'createMailingForMyClub' => Text::class,
 ];

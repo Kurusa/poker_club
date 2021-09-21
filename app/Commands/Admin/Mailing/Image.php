@@ -26,8 +26,11 @@ class Image extends BaseCommand
                     'image' => $this->update->getMessage()->getPhoto()[0]->getFileId(),
                 ]);
             }
-
-            $this->triggerCommand(Club::class);
+            if (!$this->user->is_super_admin) {
+                $this->triggerCommand(Start::class);
+            } else {
+                $this->triggerCommand(Club::class);
+            }
         } else {
             $this->user->update([
                 'status' => UserStatusService::MAILING_IMAGE,

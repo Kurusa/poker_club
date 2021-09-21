@@ -32,6 +32,10 @@ class Text extends BaseCommand
                 $mailing->text = $this->update->getMessage()->getText();
             }
 
+            if (!$this->user->is_super_admin) {
+                $mailing->club_id = $this->user->club()->first()->id;
+            }
+
             $mailing->save();
             $this->triggerCommand(Image::class);
         } else {

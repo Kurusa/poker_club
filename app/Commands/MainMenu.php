@@ -46,6 +46,9 @@ class MainMenu extends BaseCommand
                 $this->text['whoWillComeToEvent'],
                 $this->text['createEvent'],
             ];
+            $buttons[] = [
+                $this->text['editClub'],
+            ];
         }
 
         $this->getBot()->sendMessageWithKeyboard(

@@ -3,10 +3,10 @@
 namespace App\Services\Status;
 
 /**
- * Class ClubStatusService store all club statuses
+ * Class ClubEventStatusService store all club statuses
  * @package App\Services
  */
-class ClubStatusService {
+class ClubEventStatusService {
 
     const CREATING = 'CREATING';
     const EDITING  = 'EDITING';

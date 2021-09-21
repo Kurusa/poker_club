@@ -96,7 +96,7 @@ abstract class BaseCommand
     protected function getCallbackData()
     {
         if (!isset($this->callbackData)) {
-            $this->callbackData = json_decode($this->update->getCallbackQuery()->getData(), true);
+            $this->callbackData = $this->update->getCallbackQuery() ? json_decode($this->update->getCallbackQuery()->getData(), true) : [];
         }
 
         return $this->callbackData;

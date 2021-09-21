@@ -21,5 +21,9 @@ class UserStatusService {
     const SHOW_USERS_TO_EVENT_LIST      = 'SHOW_USERS_TO_EVENT_LIST';
     const CREATE_EVENT                  = 'CREATE_EVENT';
     const WRITING_NEW_EVENT_DESCRIPTION = 'WRITING_NEW_EVENT_DESCRIPTION';
+    const EDIT_CLUB_MENU                = 'EDIT_CLUB_MENU';
+    const EDIT_CLUB_TITLE               = 'EDIT_CLUB_TITLE';
+    const EDIT_CLUB_DESCRIPTION         = 'EDIT_CLUB_DESCRIPTION';
+    const EDIT_CLUB_TRAINING_GAMES      = 'EDIT_CLUB_TRAINING_GAMES';
 
 }

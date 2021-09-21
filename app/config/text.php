@@ -25,5 +25,11 @@ return [
     'delete'                    => 'Удалить',
     'successfullyDeleted'       => 'Событие удалено.',
     'writeDescription'          => 'Укажите описание события',
-    'successfullyCreated'       => 'Событие создано ',
+    'successfullyCreated'       => 'Событие создано',
+    'editClub'                  => 'Редактировать клуб',
+    'editClubTitle'             => '✏️ название',
+    'editClubDescription'       => '✏️ описание',
+    'editClubTrainingGames'     => '✏️ тренировочные игры',
+    'writeNewValue'             => 'Напишите новое значение',
+    'successfullyUpdated'       => 'Событие обновлено.',
 ];

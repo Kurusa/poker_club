@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\{
 
 /**
  * @method static firstWhere(string $string, mixed $id)
+ * @method static where(string $string, mixed $club_id)
  */
 class ClubAdmin extends Pivot
 {

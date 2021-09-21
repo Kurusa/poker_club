@@ -25,5 +25,8 @@ class UserStatusService {
     const EDIT_CLUB_TITLE               = 'EDIT_CLUB_TITLE';
     const EDIT_CLUB_DESCRIPTION         = 'EDIT_CLUB_DESCRIPTION';
     const EDIT_CLUB_TRAINING_GAMES      = 'EDIT_CLUB_TRAINING_GAMES';
+    const MAILING_TEXT                  = 'MAILING_TEXT';
+    const MAILING_IMAGE                 = 'MAILING_IMAGE';
+    const MAILING_CLUB                  = 'MAILING_CLUB';
 
 }

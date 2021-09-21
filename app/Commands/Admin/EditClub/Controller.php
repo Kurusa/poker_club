@@ -9,7 +9,7 @@ use App\Commands\{
     MainMenu,
 };
 
-class EditController extends BaseCommand
+class Controller extends BaseCommand
 {
 
     /**
@@ -39,8 +39,8 @@ class EditController extends BaseCommand
         } else {
             $field = match ($this->user->status) {
                 UserStatusService::EDIT_CLUB_TITLE          => 'title',
-                UserStatusService::EDIT_CLUB_DESCRIPTION    => 'description',
-                UserStatusService::EDIT_CLUB_TRAINING_GAMES => 'training_games',
+                UserStatusService::EDIT_CLUB_DESCRIPTION    => 'club_description',
+                UserStatusService::EDIT_CLUB_TRAINING_GAMES => 'game_description',
             };
 
             $this->triggerCommand(MainMenu::class);
@@ -52,7 +52,7 @@ class EditController extends BaseCommand
                 $this->user->chat_id,
                 $this->text['successfullyUpdated'],
             );
-            $this->triggerCommand(EditClubMenu::class);
+            $this->triggerCommand(ClubMenu::class);
         }
     }
 

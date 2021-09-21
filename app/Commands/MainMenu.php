@@ -25,7 +25,7 @@ class MainMenu extends BaseCommand
         $clubTitles = Club::all()->pluck('title')->all();
 
         # If club is selected - show club menu
-        if ($this->update->getMessage()) {
+        if ($this->update->getMessage() && !isset($params['skipClubName'])) {
             if (in_array($this->update->getMessage()->getText(), $clubTitles)) {
                 $this->triggerCommand(ClubMenu::class);
                 return;
@@ -37,7 +37,10 @@ class MainMenu extends BaseCommand
 
         # Superadmin buttons
         if ($this->user->is_super_admin) {
-            $buttons[] = [$this->text['setClubAdmins']];
+            $buttons[] = [
+                $this->text['setClubAdmins'],
+                $this->text['createMailing'],
+            ];
         }
 
         # Admin buttons

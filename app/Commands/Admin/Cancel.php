@@ -7,6 +7,7 @@ use App\Commands\{
     MainMenu,
 };
 use App\Services\Status\{
+    MailingStatusService,
     UserStatusService,
     ClubEventStatusService,
 };
@@ -24,6 +25,12 @@ class Cancel extends BaseCommand
             case UserStatusService::EDIT_CLUB_TITLE:
             case UserStatusService::EDIT_CLUB_DESCRIPTION:
             case UserStatusService::EDIT_CLUB_TRAINING_GAMES:
+                $this->triggerCommand(MainMenu::class);
+                break;
+            case UserStatusService::MAILING_TEXT:
+            case UserStatusService::MAILING_IMAGE:
+            case UserStatusService::MAILING_CLUB:
+                $this->user->mailings()->where('status', MailingStatusService::CREATING)->delete();
                 $this->triggerCommand(MainMenu::class);
                 break;
         }

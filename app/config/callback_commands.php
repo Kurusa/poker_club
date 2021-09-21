@@ -19,7 +19,7 @@ use App\Commands\ClubMenu\{
     TrainingGames,
     UserEventDecisionMaker,
 };
-use App\Commands\Admin\EditClub\EditController;
+use App\Commands\Admin\EditClub\Controller;
 
 return [
     'clubSchedule'          => ClubSchedule::class,
@@ -36,7 +36,7 @@ return [
     'edit'                  => Edit::class,
     'delete'                => Delete::class,
     'backToClubMenu'        => ClubMenu::class,
-    'editClubTitle'         => EditController::class,
-    'editClubDescription'   => EditController::class,
-    'editClubTrainingGames' => EditController::class,
+    'editClubTitle'         => Controller::class,
+    'editClubDescription'   => Controller::class,
+    'editClubTrainingGames' => Controller::class,
 ];

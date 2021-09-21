@@ -46,6 +46,7 @@ class ClubEvent extends BaseCommand
                         'callback' => [
                             'a'       => 'userEventDecision',
                             'eventId' => $clubEvent->id,
+                            'clubId'  => $clubId,
                             'v'       => true,
                         ]
                     ],
@@ -54,12 +55,12 @@ class ClubEvent extends BaseCommand
                         'callback' => [
                             'a'       => 'userEventDecision',
                             'eventId' => $clubEvent->id,
-                            'v'       => true,
+                            'clubId'  => $clubId,
+                            'v'       => false,
                         ]
                     ]
                 ];
             } else {
-                $value = !$userEventDecision->value;
                 $text = $userEventDecision->value ? $this->text['skipEventAnyway'] : $this->text['signUpForEventAnyway'];
 
                 TelegramKeyboard::$list = [
@@ -68,7 +69,8 @@ class ClubEvent extends BaseCommand
                         'callback' => [
                             'a'       => 'userEventDecision',
                             'eventId' => $clubEvent->id,
-                            'v'       => $value,
+                            'clubId'  => $clubId,
+                            'v'       => !$userEventDecision->value,
                         ]
                     ],
                 ];

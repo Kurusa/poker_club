@@ -13,7 +13,7 @@ use TelegramBot\Api\{
 };
 use App\Commands\BaseCommand;
 
-class EditClubMenu extends BaseCommand
+class ClubMenu extends BaseCommand
 {
 
     protected ?string $userStatus = UserStatusService::EDIT_CLUB_MENU;
@@ -28,7 +28,7 @@ class EditClubMenu extends BaseCommand
 
         $text = 'Id: ' . '<b>'. $club->id .'</b>' . "\n";
         $text .= 'Название: ' . '<b>'. $club->title .'</b>' . "\n" . "\n";
-        $text .= 'Описание: '. $club->description . "\n";
+        $text .= 'Описание: '. $club->club_description . "\n";
         $text .= 'Тренировочные игры: '. $club->game_description;
 
         $buttons[] = [

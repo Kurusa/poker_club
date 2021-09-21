@@ -32,4 +32,9 @@ return [
     'editClubTrainingGames'     => '✏️ тренировочные игры',
     'writeNewValue'             => 'Напишите новое значение',
     'successfullyUpdated'       => 'Событие обновлено.',
+    'createMailing'             => 'Создать рассылку',
+    'writeMailingText'          => 'Укажите текст рассылки',
+    'addMailingImage'           => 'Добавьте изображение к рассылке',
+    'skip'                      => 'Пропустить',
+    'selectClubForMailing'      => 'Выберите клуб для рассылки',
 ];

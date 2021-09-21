@@ -5,12 +5,17 @@ use App\Commands\Admin\{
     SelectMonth,
 };
 use App\Commands\SuperAdmin\ListClubs;
-use App\Commands\Admin\EditClub\EditClubMenu;
+use App\Commands\Admin\EditClub\ClubMenu;
+use App\Commands\Admin\Mailing\{
+    Text,
+    Image,
+};
 
 return [
     'setClubAdmins'      => ListClubs::class,
     'whoWillComeToEvent' => SelectMonth::class,
     'createEvent'        => SelectMonth::class,
     'cancel'             => Cancel::class,
-    'editClub'           => EditClubMenu::class,
+    'editClub'           => ClubMenu::class,
+    'createMailing'      => Text::class,
 ];

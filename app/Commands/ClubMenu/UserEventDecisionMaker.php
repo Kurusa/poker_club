@@ -25,16 +25,19 @@ class UserEventDecisionMaker extends BaseCommand
     function processCommand(array $params = [])
     {
         $eventId = $this->getCallbackDataByKey('eventId');
+        $clubId  = $this->getCallbackDataByKey('clubId');
         $value = $this->getCallbackDataByKey('v');
 
         UserEventDecision::updateOrCreate(
             [
                 'user_id'   => $this->user->id,
                 'event_id'  => $eventId,
+                'club_id'   => $clubId,
             ],
             [
                 'user_id'   => $this->user->id,
                 'event_id'  => $eventId,
+                'club_id'   => $clubId,
                 'value'     => intval($value),
             ]
         );

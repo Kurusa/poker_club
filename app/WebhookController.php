@@ -29,8 +29,11 @@ class WebhookController
             } elseif ($update->getMessage()) {
                 $text = $update->getMessage()->getText();
 
-                $this->processSlashCommand($text);
-                $this->processKeyboardCommand($text);
+                if ($text) {
+                    $this->processSlashCommand($text);
+                    $this->processKeyboardCommand($text);
+                }
+
                 $this->processStatusCommand($update);
             }
 
@@ -76,7 +79,9 @@ class WebhookController
             if (isset($translations[$text])) {
                 $key = $translations[$text];
                 $handlers = include_once(__DIR__ . '/config/keyboard_commands.php');
-                $this->handlerClassName = $handlers[$key];
+                if (isset($handlers[$key])) {
+                    $this->handlerClassName = $handlers[$key];
+                }
             }
         }
     }

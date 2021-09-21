@@ -35,6 +35,11 @@ class User extends Model
         return $this->hasMany(UserEventDecision::class, 'user_id', 'id');
     }
 
+    public function mailings(): HasMany
+    {
+        return $this->hasMany(Mailing::class, 'user_id', 'id');
+    }
+
     public function getNameAttribute()
     {
         return $this->user_name ?: $this->first_name;

@@ -13,7 +13,7 @@ use TelegramBot\Api\{
 class WebhookController
 {
 
-    protected bool $handlerClassName = false;
+    protected string $handlerClassName = '';
 
     /**
      * @throws InvalidJsonException

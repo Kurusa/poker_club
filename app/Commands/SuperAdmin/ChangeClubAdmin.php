@@ -15,7 +15,7 @@ class ChangeClubAdmin extends BaseCommand
     {
         $clubId = $this->getCallbackDataByKey('clubId');
         $userId = $this->getCallbackDataByKey('userId');
-        $value = $this->getCallbackDataByKey('v');
+        $value  = $this->getCallbackDataByKey('v');
 
         $club = Club::find($clubId);
         if ($value) {

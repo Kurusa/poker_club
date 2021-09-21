@@ -45,9 +45,9 @@ class Club extends Model
             $dates[] = [
                 'text' => $text,
                 'callback' => [
-                    'id'   => $this->id,
-                    'date' => $date,
-                    'a'    => 'clubEventByDate',
+                    'clubId' => $this->id,
+                    'date'   => $date,
+                    'a'      => 'clubEventByDate',
                 ]
             ];
         }

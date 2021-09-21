@@ -17,6 +17,7 @@ use Illuminate\Database\Eloquent\{
  * @property mixed user_name
  * @property mixed status
  * @property mixed is_super_admin
+ * @property mixed id
  */
 class User extends Model
 {

@@ -2,9 +2,11 @@
 
 namespace App\Commands;
 
-use App\Services\Status\UserStatusService;
+use App\Services\{
+    Status\UserStatusService,
+    Utils\Api,
+};
 use App\Models\User;
-use App\Services\Utils\Api;
 use TelegramBot\Api\Types\Update;
 use Exception;
 

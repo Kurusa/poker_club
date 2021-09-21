@@ -2,13 +2,13 @@
 
 namespace App;
 
-use App\Commands\MainMenu;
-use App\Models\User;
 use TelegramBot\Api\{
     Client,
     InvalidJsonException,
     Types\Update,
 };
+use App\Commands\MainMenu;
+use App\Models\User;
 
 class WebhookController
 {

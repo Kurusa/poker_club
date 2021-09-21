@@ -13,15 +13,16 @@ use App\Commands\Admin\{
     SelectMonth,
 };
 use App\Commands\ClubMenu\{
+    ClubEvent,
     ClubMenu,
+    ClubSchedule,
     TrainingGames,
+    UserEventDecisionMaker,
 };
-use App\Commands\ClubEvent;
-use App\Commands\ClubSchedule;
-use App\Commands\UserEventDecisionMaker;
 
 return [
     'clubSchedule'       => ClubSchedule::class,
+    'backToClubSchedule' => ClubSchedule::class,
     'clubEventByDate'    => ClubEvent::class,
     'userEventDecision'  => UserEventDecisionMaker::class,
     'trainingGames'      => TrainingGames::class,
@@ -34,5 +35,4 @@ return [
     'edit'               => Edit::class,
     'delete'             => Delete::class,
     'backToClubMenu'     => ClubMenu::class,
-    'backToClubSchedule' => ClubSchedule::class,
 ];

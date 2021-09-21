@@ -4,11 +4,13 @@ namespace App\Commands\SuperAdmin;
 
 use App\Models\{
     Club,
-    User
+    User,
+};
+use App\Services\{
+    Status\UserStatusService,
+    Utils\TelegramKeyboard,
 };
 use App\Commands\BaseCommand;
-use App\Services\Status\UserStatusService;
-use App\Services\Utils\TelegramKeyboard;
 use TelegramBot\Api\Types\Inline\InlineKeyboardMarkup;
 
 class ListUsersToClub extends BaseCommand
@@ -19,8 +21,7 @@ class ListUsersToClub extends BaseCommand
     function processCommand(array $params = [])
     {
         $clubId = $this->getCallbackDataByKey('id') ?: $params['clubId'];
-
-        $club = Club::find($clubId);
+        $club  = Club::find($clubId);
         $users = User::all();
 
         $buttons = [];
@@ -60,7 +61,7 @@ class ListUsersToClub extends BaseCommand
             $this->text['selectClubAdmins'] . ' "' . $club->title . '"',
             'HTML',
             true,
-            new InlineKeyboardMarkup(TelegramKeyboard::get())
+            new InlineKeyboardMarkup(TelegramKeyboard::get()),
         );
     }
 

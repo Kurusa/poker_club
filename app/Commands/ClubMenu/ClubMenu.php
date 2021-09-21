@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Commands\SuperAdmin;
+namespace App\Commands\ClubMenu;
 
 use TelegramBot\Api\{
     Exception,
@@ -14,10 +14,10 @@ use App\Services\{
 use App\Commands\BaseCommand;
 use App\Models\Club;
 
-class ListClubs extends BaseCommand
+class ClubMenu extends BaseCommand
 {
 
-    protected ?string $userStatus = UserStatusService::LIST_CLUBS;
+    protected ?string $userStatus = UserStatusService::CLUB_MENU;
 
     /**
      * @throws Exception
@@ -25,16 +25,36 @@ class ListClubs extends BaseCommand
      */
     function processCommand(array $params = [])
     {
-        TelegramKeyboard::$list    = Club::all()->pluck('title', 'id')->all();
+        if ($this->update->getMessage()) {
+            $club = Club::firstWhere('title', $this->update->getMessage()->getText());
+        } else {
+            $club = Club::find($this->getCallbackDataByKey('clubId'));
+        }
+
+        TelegramKeyboard::$list = [
+            [
+                'text' => $this->text['schedule'],
+                'callback' => [
+                    'a'      => 'clubSchedule',
+                    'clubId' => $club->id,
+                ]
+            ],
+            [
+                'text' => $this->text['trainingGames'],
+                'callback' => [
+                    'a'      => 'trainingGames',
+                    'clubId' => $club->id,
+                ]
+            ]
+        ];
         TelegramKeyboard::$columns = 2;
-        TelegramKeyboard::$action  = 'listUsersToClub';
         TelegramKeyboard::build();
 
         if ($this->update->getCallbackQuery()) {
             $this->getBot()->editMessageText(
                 $this->user->chat_id,
                 $this->getMessageId(),
-                $this->text['selectClub'],
+                $club->club_description,
                 'HTML',
                 true,
                 new InlineKeyboardMarkup(TelegramKeyboard::get()),
@@ -42,7 +62,7 @@ class ListClubs extends BaseCommand
         } else {
             $this->getBot()->sendMessageWithKeyboard(
                 $this->user->chat_id,
-                $this->text['selectClub'],
+                $club->club_description,
                 new InlineKeyboardMarkup(TelegramKeyboard::get()),
             );
         }

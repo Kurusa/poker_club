@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\{
     Relations\BelongsTo,
 };
 
+/**
+ * @method static updateOrCreate(array $array, array $array1)
+ */
 class UserEventDecision extends Model
 {
 
